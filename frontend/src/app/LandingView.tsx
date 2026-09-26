@@ -21,12 +21,46 @@ import { getSitePage, type LandingPage } from "@/lib/site";
 
 type State = { kind: "loading" } | { kind: "ready"; page: LandingPage } | { kind: "missing" } | { kind: "error"; message: string };
 
+/**
+ * Built-in default landing content. Used as a fallback so the landing page ALWAYS
+ * renders — even before the backend is reachable or the `site_content` doc is
+ * published. When the API returns a published landing, that (admin-edited) content
+ * is used instead.
+ */
+const DEFAULT_LANDING: LandingPage = {
+  key: "landing",
+  version: 0,
+  headline: "Understand your talent. Build what comes next.",
+  subheadline:
+    "METI uses AI-powered assessments and evidence analysis to understand your professional capabilities, identify development gaps, and map where you can grow next.",
+  cta_label: "Create your account",
+  sections_heading: "Why enterprise talent intelligence",
+  sections: [
+    { title: "AI-powered assessment", body: "Adaptive assessments measure reasoning, knowledge and communication — not memorised answers." },
+    { title: "Evidence analysis", body: "Your CV and uploaded work are weighed as real evidence, so scores reflect what you can actually do." },
+    { title: "Talent intelligence", body: "A clear capability profile, development gaps, career directions and a personalised roadmap." },
+  ],
+  steps_heading: "How it works",
+  steps: [
+    { title: "Build your profile", body: "Add your background and upload your CV — read for evidence, not keywords." },
+    { title: "Complete your assessment", body: "Answer adaptive questions and submit work samples across capabilities." },
+    { title: "AI understands your evidence", body: "MODUS scores your reasoning, knowledge and communication with cited evidence." },
+    { title: "Receive your report", body: "Get a talent-intelligence profile, career recommendations and a development roadmap." },
+  ],
+  closing_heading: "Ready to understand your potential?",
+  closing_body: "Build your profile, complete one assessment, and receive your Talent Intelligence report.",
+  privacy_note: "Your data is used only to run your assessments and reports. AI-assisted scoring is reviewable by a person.",
+  video: null,
+};
+
 async function loadLanding(): Promise<State> {
   try {
     return { kind: "ready", page: await getSitePage("landing") };
   } catch (err) {
-    if (err instanceof ApiError && err.status === 404) return { kind: "missing" };
-    return { kind: "error", message: errorMessage(err) };
+    // Never leave the landing blank: fall back to built-in default content when the
+    // API is unreachable or the landing isn't published yet.
+    if (!(err instanceof ApiError && err.status === 404)) console.warn("Landing API unavailable, using default content:", errorMessage(err));
+    return { kind: "ready", page: DEFAULT_LANDING };
   }
 }
 

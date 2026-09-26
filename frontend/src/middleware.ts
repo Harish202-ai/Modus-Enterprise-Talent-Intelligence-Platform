@@ -13,8 +13,12 @@ import { NextResponse, type NextRequest } from "next/server";
  * If BACKEND_URL is unset (e.g. local dev, where NEXT_PUBLIC_API_URL points the
  * browser straight at the backend) this does nothing.
  */
+// Deployed backend (Railway). Overridable at runtime via the BACKEND_URL env var;
+// falls back to this default so the proxy works out of the box after a push.
+const DEFAULT_BACKEND = "https://modus-enterprise-talent-intelligence-platform-production.up.railway.app";
+
 export function middleware(req: NextRequest) {
-  const backend = (process.env.BACKEND_URL || "").replace(/\/$/, "");
+  const backend = (process.env.BACKEND_URL || DEFAULT_BACKEND).replace(/\/$/, "");
   if (!backend) return NextResponse.next();
   const target = new URL(req.nextUrl.pathname + req.nextUrl.search, backend);
   return NextResponse.rewrite(target);

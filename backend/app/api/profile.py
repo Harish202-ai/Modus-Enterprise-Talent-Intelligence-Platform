@@ -55,4 +55,10 @@ async def download(file_id: str, user: User = Depends(get_current_user), tenant:
     doc = await files.get(tenant.id, file_id)
     if doc["user_id"] != user.id and user.role != "admin":
         raise HTTPException(404, "File not found")
-    return FileResponse(files.path_of(doc), media_type=doc["content_type"], filename=doc["filename"])
+    path = files.path_of(doc)
+    if not path.exists():
+        # The DB record exists but the bytes are gone — the upload was written to a
+        # different/ephemeral filesystem (e.g. a container redeploy without a persistent
+        # volume, or a different backend instance). Fail clean instead of a 500.
+        raise HTTPException(410, "This file is no longer available on the server. Uploads need a persistent storage volume to survive redeploys.")
+    return FileResponse(path, media_type=doc["content_type"], filename=doc["filename"])

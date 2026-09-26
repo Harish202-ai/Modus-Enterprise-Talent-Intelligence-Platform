@@ -1,0 +1,12 @@
+{
+  "content_type": "interview_questions",
+  "publish": true,
+  "source": "Phase (v5) AI video interview: the questions the interviewer asks, each with a time limit. Admin-editable in Admin → Interview questions (or generate with AI / import a file).",
+  "items": [
+    {"key": "IV-01", "data": {"prompt": "Introduce yourself in under a minute: your background and why enterprise management consulting.", "seconds": 60, "order": 10}},
+    {"key": "IV-02", "data": {"prompt": "Tell us about a time you structured an ambiguous problem. What was the situation, how did you break it down, and what happened?", "seconds": 120, "order": 20}},
+    {"key": "IV-03", "data": {"prompt": "A client insists on a solution the evidence doesn't support. How do you handle it?", "seconds": 90, "order": 30}},
+    {"key": "IV-04", "data": {"prompt": "Describe a time you had to influence a senior stakeholder who disagreed with you.", "seconds": 90, "order": 40}},
+    {"key": "IV-05", "data": {"prompt": "Where do you want your consulting career to be in five years, and what will you do to get there?", "seconds": 90, "order": 50}}
+  ]
+}

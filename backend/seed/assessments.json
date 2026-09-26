@@ -1,0 +1,97 @@
+{
+  "content_type": "assessments",
+  "publish": true,
+  "source": "Plan v2 Phase 5: the 7 forms merged from the TDD's 22, each wired to its sections (seed/sections.json).",
+  "items": [
+    {
+      "key": "profile",
+      "data": {
+        "name": "Profile & Experience",
+        "category": "Profile",
+        "purpose": "Education, roles, years of experience, industries, markets and international exposure; CV/LinkedIn links. Context for the report — capped self-report contribution (TDD F01–F02).",
+        "section_keys": [
+          "prf_background",
+          "prf_programme",
+          "prf_international"
+        ],
+        "time_limit_minutes": 5
+      }
+    },
+    {
+      "key": "motivation",
+      "data": {
+        "name": "Career Motivation",
+        "category": "Potential",
+        "purpose": "Why consulting, target practice areas and industries, start readiness and development preferences (TDD F03, F21–F22).",
+        "section_keys": [
+          "mot_main"
+        ],
+        "time_limit_minutes": 5
+      }
+    },
+    {
+      "key": "talent_dna",
+      "data": {
+        "name": "Talent DNA",
+        "category": "Potential",
+        "purpose": "Ranked-response items across purpose, curiosity, systems thinking, innovation, communication, leadership, teamwork, consulting DNA and future thinking — scored 4-3-2-1 (TDD F04, §9.1).",
+        "section_keys": [
+          "td_main"
+        ],
+        "time_limit_minutes": 8
+      }
+    },
+    {
+      "key": "values",
+      "data": {
+        "name": "Values (Schwartz-informed)",
+        "category": "Values",
+        "purpose": "Theory-aligned items across the 10 basic values and 4 higher-order views; centred on the candidate's own mean (MRAT). Descriptive only — never pass/fail (TDD F05, §9.2–9.4).",
+        "section_keys": [
+          "val_part1",
+          "val_part2"
+        ],
+        "time_limit_minutes": 8
+      }
+    },
+    {
+      "key": "capability",
+      "data": {
+        "name": "Consulting Capability",
+        "category": "Capability",
+        "purpose": "One ~20-question module merging strategy, research, value chain, process/TOM, transformation, programme and AI awareness (TDD F06–F14).",
+        "section_keys": [
+          "cap_strategy",
+          "cap_operations",
+          "cap_transformation",
+          "cap_data_ai"
+        ],
+        "time_limit_minutes": 25
+      }
+    },
+    {
+      "key": "written_communication",
+      "data": {
+        "name": "Written Communication",
+        "category": "Demonstrated",
+        "purpose": "One memo-style executive response, AI-scored against a published rubric (TDD F15).",
+        "section_keys": [
+          "wc_memo"
+        ],
+        "time_limit_minutes": 30
+      }
+    },
+    {
+      "key": "case_study",
+      "data": {
+        "name": "Case Study",
+        "category": "Demonstrated",
+        "purpose": "One ambiguous enterprise case: issue tree, hypotheses, options, recommendation and risks — written or uploaded response, AI-scored against a rubric (TDD F17–F18).",
+        "section_keys": [
+          "case_harbour"
+        ],
+        "time_limit_minutes": 45
+      }
+    }
+  ]
+}

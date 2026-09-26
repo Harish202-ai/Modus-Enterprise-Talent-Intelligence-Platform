@@ -1,0 +1,15 @@
+{
+  "content_type": "competencies",
+  "publish": true,
+  "source": "Plan v2: 20 TDD competencies reduced to a smaller set (6-8) for a clean radar chart. Each item lists the TDD §8 codes it merges (tdd:Cxx tags).",
+  "items": [
+    {"key": "strategy_enterprise", "data": {"name": "Strategy & Enterprise Thinking", "definition": "Business strategy, strategic choices, business models and end-to-end enterprise structure, translated into initiatives and financial outcomes.", "tags": ["capability", "tdd:C01", "tdd:C03"]}},
+    {"key": "research_structuring", "data": {"name": "Research & Problem Structuring", "definition": "Industry and market research with source discipline; issue trees, hypotheses, MECE thinking, prioritisation and synthesis.", "tags": ["capability", "tdd:C02", "tdd:C13"]}},
+    {"key": "value_chain_operating_model", "data": {"name": "Value Chain, Process & Operating Model", "definition": "Value chain mapping, process and capability design (BPMN/SIPOC/value streams) and target operating model components and trade-offs.", "tags": ["capability", "tdd:C04", "tdd:C05", "tdd:C06", "tdd:C07"]}},
+    {"key": "transformation_delivery", "data": {"name": "Transformation, Change & Delivery", "definition": "Current/future state, roadmaps, change and adoption, organisation and governance, programme prioritisation, risk and benefits realisation.", "tags": ["capability", "tdd:C08", "tdd:C09", "tdd:C10", "tdd:C11"]}},
+    {"key": "data_ai_commercial", "data": {"name": "Data, Commercial & AI Awareness", "definition": "Quantitative and financial reasoning, KPI and value-case design, and responsible enterprise AI opportunity framing.", "tags": ["capability", "tdd:C12", "tdd:C14"]}},
+    {"key": "executive_communication", "data": {"name": "Executive Communication", "definition": "Structured writing and speaking, brevity, audience adaptation and recommendation storytelling.", "tags": ["demonstrated", "tdd:C15"]}},
+    {"key": "stakeholder_leadership", "data": {"name": "Stakeholder Leadership & Collaboration", "definition": "Listening, facilitation, influence, teamwork and cross-cultural client readiness.", "tags": ["behaviour", "tdd:C16", "tdd:C19", "tdd:C20"]}},
+    {"key": "judgement_learning", "data": {"name": "Professional Judgement & Learning Agility", "definition": "Ethics, confidentiality, evidence-based challenge and escalation; curiosity, feedback response and ambiguity tolerance.", "tags": ["behaviour", "tdd:C17", "tdd:C18"]}}
+  ]
+}

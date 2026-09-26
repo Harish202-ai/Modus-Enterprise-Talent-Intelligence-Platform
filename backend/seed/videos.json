@@ -1,0 +1,15 @@
+{
+  "content_type": "videos",
+  "publish": false,
+  "source": "Plan v2 Phase 3: one explainer video (TDD V01). Draft until an admin pastes the real video URL (YouTube or https .mp4), optionally captions (.vtt) and a transcript, and publishes it.",
+  "items": [
+    {"key": "explainer", "data": {
+      "title": "The Future of Enterprise Management Consulting",
+      "description": "Why enterprise consulting matters now, how the METI assessment works, and what you receive at the end.",
+      "provider": "youtube",
+      "url": "",
+      "captions_url": "",
+      "transcript": ""
+    }}
+  ]
+}

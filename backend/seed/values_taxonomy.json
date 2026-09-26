@@ -1,0 +1,21 @@
+{
+  "content_type": "values_taxonomy",
+  "publish": true,
+  "source": "TDD v1.1 §9.2 Schwartz-Informed Values Model and §9.3 Four Higher-Order Value Views. Basic values are listed first so higher-order views can reference them.",
+  "items": [
+    {"key": "self_direction", "data": {"name": "Self-direction", "kind": "basic_value", "definition": "Independent thought/action; creating, choosing and exploring.", "consulting_interpretation": "Hypothesis independence, intellectual courage, autonomous problem solving."}},
+    {"key": "stimulation", "data": {"name": "Stimulation", "kind": "basic_value", "definition": "Novelty, challenge and excitement.", "consulting_interpretation": "Comfort with ambiguity and transformation; potential novelty bias."}},
+    {"key": "hedonism", "data": {"name": "Hedonism", "kind": "basic_value", "definition": "Pleasure and enjoyment.", "consulting_interpretation": "Work-energy preference; report descriptively, not as consulting capability."}},
+    {"key": "achievement", "data": {"name": "Achievement", "kind": "basic_value", "definition": "Success through demonstrated competence.", "consulting_interpretation": "Delivery drive, standards, career ambition; watch status-over-substance risk."}},
+    {"key": "power", "data": {"name": "Power", "kind": "basic_value", "definition": "Status, prestige and control of people/resources.", "consulting_interpretation": "Influence/commercial leadership; develop collaborative use of authority."}},
+    {"key": "security", "data": {"name": "Security", "kind": "basic_value", "definition": "Safety, stability and harmony.", "consulting_interpretation": "Risk awareness, control, governance, delivery reliability."}},
+    {"key": "conformity", "data": {"name": "Conformity", "kind": "basic_value", "definition": "Restraint to avoid harming others / violating expectations.", "consulting_interpretation": "Protocol discipline, client norms, quality; balance with constructive challenge."}},
+    {"key": "tradition", "data": {"name": "Tradition", "kind": "basic_value", "definition": "Respect and commitment to established customs/ideas.", "consulting_interpretation": "Institutional respect and continuity; balance with future-state redesign."}},
+    {"key": "benevolence", "data": {"name": "Benevolence", "kind": "basic_value", "definition": "Welfare of people in close contact / in-group.", "consulting_interpretation": "Team support, mentoring, client care and dependable collaboration."}},
+    {"key": "universalism", "data": {"name": "Universalism", "kind": "basic_value", "definition": "Understanding, tolerance and welfare of all people/nature.", "consulting_interpretation": "Stakeholder breadth, ESG/public value and global/systemic orientation."}},
+    {"key": "openness_to_change", "data": {"name": "Openness to Change", "kind": "higher_order", "definition": "Self-direction + Stimulation; Hedonism partly overlaps.", "consulting_interpretation": "Experimentation, autonomy, change orientation, ambiguity tolerance.", "constituent_value_keys": ["self_direction", "stimulation"], "partial_value_keys": ["hedonism"]}},
+    {"key": "self_enhancement", "data": {"name": "Self-Enhancement", "kind": "higher_order", "definition": "Achievement + Power; Hedonism partly overlaps.", "consulting_interpretation": "Achievement drive, influence, advancement and commercial ambition.", "constituent_value_keys": ["achievement", "power"], "partial_value_keys": ["hedonism"]}},
+    {"key": "conservation", "data": {"name": "Conservation", "kind": "higher_order", "definition": "Security + Conformity + Tradition.", "consulting_interpretation": "Stability, governance, duty, order, risk management and continuity.", "constituent_value_keys": ["security", "conformity", "tradition"], "partial_value_keys": []}},
+    {"key": "self_transcendence", "data": {"name": "Self-Transcendence", "kind": "higher_order", "definition": "Benevolence + Universalism.", "consulting_interpretation": "Stakeholder welfare, collaboration, purpose, inclusivity and societal impact.", "constituent_value_keys": ["benevolence", "universalism"], "partial_value_keys": []}}
+  ]
+}

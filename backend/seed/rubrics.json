@@ -1,0 +1,91 @@
+{
+  "content_type": "rubrics",
+  "publish": true,
+  "source": "Phase 7 (plan v5): rubrics for the AI-scored free-text responses. Every rubric shares the three named dimensions the AI Scoring Service returns — Reasoning, Knowledge, Communication (v5 §Phase 7) — with 0-100 anchors; weights say which dimension matters most for that kind of response (used by the Phase 8 composite). The memo rubric scores WC-01; the case rubric scores CASE-01 and CASE-02.",
+  "items": [
+    {
+      "key": "memo",
+      "data": {
+        "name": "Executive Memo",
+        "competency_keys": ["executive_communication"],
+        "dimensions": [
+          {
+            "key": "communication",
+            "name": "Communication",
+            "weight": 0.5,
+            "anchors": [
+              {"level": 20, "descriptor": "No clear recommendation; rambling or unstructured; wrong register for a senior reader."},
+              {"level": 50, "descriptor": "A recommendation is present but buried; some structure; occasionally too long or too technical."},
+              {"level": 75, "descriptor": "Leads with a clear recommendation, logically ordered, appropriately brief for a COO."},
+              {"level": 95, "descriptor": "Crisp answer-first structure, well-signposted, persuasive and precisely pitched to the executive audience."}
+            ]
+          },
+          {
+            "key": "reasoning",
+            "name": "Reasoning",
+            "weight": 0.3,
+            "anchors": [
+              {"level": 20, "descriptor": "Assertions without support; no cause-effect logic; ignores trade-offs or risk."},
+              {"level": 50, "descriptor": "Some supporting points; logic partly holds; risk noted but not managed."},
+              {"level": 75, "descriptor": "Three sound supporting points; a real risk with a credible mitigation."},
+              {"level": 95, "descriptor": "Tightly argued, evidence-linked points; trade-offs weighed; risk and mitigation are specific and realistic."}
+            ]
+          },
+          {
+            "key": "knowledge",
+            "name": "Knowledge",
+            "weight": 0.2,
+            "anchors": [
+              {"level": 20, "descriptor": "Advice generic or incorrect for the operational situation."},
+              {"level": 50, "descriptor": "Broadly sensible actions but shallow on operational cause and measures."},
+              {"level": 75, "descriptor": "Actions fit the root cause (post-system-change failure) with sensible measures."},
+              {"level": 95, "descriptor": "Demonstrates operational fluency — root-cause framing, sequencing, and outcome measures a practitioner would recognise."}
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "key": "case",
+      "data": {
+        "name": "Enterprise Case",
+        "competency_keys": ["research_structuring", "strategy_enterprise", "transformation_delivery", "executive_communication"],
+        "dimensions": [
+          {
+            "key": "reasoning",
+            "name": "Reasoning",
+            "weight": 0.5,
+            "anchors": [
+              {"level": 20, "descriptor": "No structure; jumps to answers; no hypotheses; misses the core tension in the case."},
+              {"level": 50, "descriptor": "Some structure (a list, not a tree); a hypothesis or two; partial grasp of the trade-off."},
+              {"level": 75, "descriptor": "A MECE issue tree or clear hypotheses; prioritised analyses; recommendation weighs at least two options and their risks."},
+              {"level": 95, "descriptor": "Sharp problem framing, prioritised hypotheses, an explicit options comparison, and a recommendation that resolves the stated tension with measured risk handling."}
+            ]
+          },
+          {
+            "key": "knowledge",
+            "name": "Knowledge",
+            "weight": 0.25,
+            "anchors": [
+              {"level": 20, "descriptor": "Analyses proposed are irrelevant or misapplied to the situation."},
+              {"level": 50, "descriptor": "Reasonable analyses named but not tied to what would change the recommendation."},
+              {"level": 75, "descriptor": "Relevant analyses (unit economics, cost-to-serve, segment behaviour) chosen for a reason."},
+              {"level": 95, "descriptor": "Selects exactly the analyses that discriminate between options, with correct commercial and operating-model reasoning."}
+            ]
+          },
+          {
+            "key": "communication",
+            "name": "Communication",
+            "weight": 0.25,
+            "anchors": [
+              {"level": 20, "descriptor": "Hard to follow; no clear line of argument."},
+              {"level": 50, "descriptor": "Understandable but loosely organised; the recommendation is not foregrounded."},
+              {"level": 75, "descriptor": "Clear structure, the recommendation stands out, success measures stated."},
+              {"level": 95, "descriptor": "Executive-ready: answer-first, tightly structured, with measures and next steps a client could act on."}
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

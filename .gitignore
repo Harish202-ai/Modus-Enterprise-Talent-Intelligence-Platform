@@ -1,0 +1,26 @@
+# secrets
+.env
+.env.local
+*.env
+!.env.example
+
+# python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# node / next
+node_modules/
+.next/
+out/
+
+# os / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# candidate uploads (local runs)
+backend/uploads/
+backend/uploads_test/

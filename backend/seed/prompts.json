@@ -1,0 +1,8 @@
+{
+  "content_type": "prompts",
+  "publish": false,
+  "source": "The report_generator is an optional AI narrative layer that stays a draft (the report is assembled deterministically). The live scoring (Phase 7), results_explainer (Phase 8) and support_chatbot (Phase 10) prompts are in prompts_live.json.",
+  "items": [
+    {"key": "report_generator", "data": {"name": "Report Generator", "purpose": "Optional AI narrative for the Detailed Report. The report is assembled deterministically from locked scores, so this stays a draft unless an admin wants an AI-written narrative layer.", "system_prompt": "PLACEHOLDER — optional AI narrative layer for the report.", "output_schema": {}, "model_policy": {}}}
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "content_type": "products",
+  "publish": true,
+  "source": "Plan v2 Phase 4 products; TDD §21.1 default prices (MC-A USD 25, PV-A USD 25, D250 USD 250). The bundle price is 'fully configurable' in the TDD — USD 40 is a starter value; change any price in Admin → Products and publish a new version.",
+  "items": [
+    {"key": "consulting_assessment", "data": {
+      "name": "Management Consulting Assessment",
+      "kind": "assessment",
+      "description": "Consulting knowledge, judgement and demonstrated capability — profile, motivation, the capability module, a written memo and a case study — with your Summary of Findings.",
+      "price": 25, "currency": "USD",
+      "assessment_keys": ["profile", "motivation", "capability", "written_communication", "case_study"],
+      "sort_order": 10
+    }},
+    {"key": "personality_values", "data": {
+      "name": "Professional Personality & Values Assessment",
+      "kind": "assessment",
+      "description": "Enterprise Talent DNA and a Schwartz-informed values profile for professional development — not a pass/fail personality test — with your Summary of Findings.",
+      "price": 25, "currency": "USD",
+      "assessment_keys": ["profile", "talent_dna", "values"],
+      "sort_order": 20
+    }},
+    {"key": "bundle", "data": {
+      "name": "Consulting + Personality & Values Bundle",
+      "kind": "bundle",
+      "description": "Both assessments. Shared profile questions are asked once, and you get a combined Summary of Findings.",
+      "price": 40, "currency": "USD",
+      "bundled_product_keys": ["consulting_assessment", "personality_values"],
+      "assessment_keys": ["profile", "motivation", "talent_dna", "values", "capability", "written_communication", "case_study"],
+      "sort_order": 30
+    }},
+    {"key": "detailed_report", "data": {
+      "name": "Detailed Intelligence Report & Development Roadmap",
+      "kind": "report_upgrade",
+      "description": "The full evidence-grounded report, a personalised development roadmap and the premium AI Results Explainer. Available after either assessment or the bundle.",
+      "price": 250, "currency": "USD",
+      "requires_product_keys": ["consulting_assessment", "personality_values", "bundle"],
+      "sort_order": 40
+    }}
+  ]
+}

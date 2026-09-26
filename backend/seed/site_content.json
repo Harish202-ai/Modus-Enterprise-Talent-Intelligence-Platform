@@ -1,0 +1,30 @@
+{
+  "content_type": "site_content",
+  "publish": true,
+  "source": "TDD §1 public story (future of work → why enterprise management consulting → why Modus → candidate journey → assessment → next steps) and §17 S01 Landing. Starter copy — edit in Admin → Site content. Add the explainer video (Admin → Videos → publish) and pick it in 'Explainer video', then publish a new version.",
+  "items": [
+    {"key": "landing", "data": {
+      "headline": "Find out how ready you are for enterprise management consulting",
+      "subheadline": "METI assesses what you can do today, how you think and work, and what you have actually demonstrated — then shows you the development path that fits.",
+      "cta_label": "Create your account",
+      "video_heading": "Start with the explainer",
+      "video_body": "A short introduction to the future of enterprise consulting, how the assessment works and what you get at the end. Watch it, mark it as watched, then create your account.",
+      "sections_heading": "Why enterprise management consulting",
+      "sections": [
+        {"title": "Work is being redesigned", "body": "Organisations are rethinking strategy, operating models and roles around data and AI. They need people who can connect the whole enterprise — not just one function."},
+        {"title": "Consulting is a learnable craft", "body": "Structuring ambiguous problems, researching an industry, designing a target operating model and communicating a recommendation are skills you can measure and build."},
+        {"title": "Evidence over self-description", "body": "METI weighs what you demonstrate — your case work and written answers — more heavily than what you say about yourself, so your results mean something."}
+      ],
+      "steps_heading": "How it works",
+      "steps": [
+        {"title": "Orientation", "body": "Watch the explainer and create your account."},
+        {"title": "Assessment", "body": "Complete your profile, motivation, Talent DNA, values, consulting capability, a written memo and a case study — save and resume any time."},
+        {"title": "Results", "body": "Get your Summary of Findings, then explore it with the AI Results Explainer — by voice or text."},
+        {"title": "Development", "body": "Unlock the Detailed Report and a personal development roadmap with weekly milestones."}
+      ],
+      "privacy_note": "Your data is used only to run your assessments, reports and roadmap. AI helps score written and case answers against published rubrics, and a person can review or override any AI score.",
+      "closing_heading": "Ready to begin?",
+      "closing_body": "It takes a minute to create your account. You can pause the assessment and come back to it from any device."
+    }}
+  ]
+}

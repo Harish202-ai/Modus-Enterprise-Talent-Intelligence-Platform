@@ -1,0 +1,2203 @@
+{
+  "content_type": "questions",
+  "publish": true,
+  "source": "Phase 5 starter item bank (+ v5: resume upload PRF-00; video option on WC-01; document option on the case) for the 7 forms (original wording). Talent DNA options carry maps_to (TDD §9.1 dimensions) and rank_points 4-3-2-1; values items carry value_map (TDD §9.2) on a 6-point portrait scale; capability items carry competency_map + correct_option. Scoring metadata is never sent to candidates. Edit in Admin → Questions.",
+  "items": [
+    {
+      "key": "PRF-00",
+      "data": {
+        "type": "file_upload",
+        "prompt": "Upload your CV / resume (PDF or Word). We'll read it to understand your background — you'll be able to check and correct what we found.",
+        "upload_kinds": [
+          "pdf",
+          "docx"
+        ],
+        "upload_max_mb": 5,
+        "upload_role": "resume"
+      }
+    },
+    {
+      "key": "PRF-01",
+      "data": {
+        "type": "single_choice",
+        "prompt": "What is your highest completed qualification?",
+        "options": [
+          {
+            "key": "A",
+            "label": "Bachelor's degree"
+          },
+          {
+            "key": "B",
+            "label": "Master's degree"
+          },
+          {
+            "key": "C",
+            "label": "MBA"
+          },
+          {
+            "key": "D",
+            "label": "Doctorate"
+          },
+          {
+            "key": "E",
+            "label": "Other professional qualification"
+          }
+        ]
+      }
+    },
+    {
+      "key": "PRF-02",
+      "data": {
+        "type": "single_choice",
+        "prompt": "How many years of full-time work experience do you have?",
+        "options": [
+          {
+            "key": "A",
+            "label": "None yet — student or recent graduate"
+          },
+          {
+            "key": "B",
+            "label": "1–2 years"
+          },
+          {
+            "key": "C",
+            "label": "3–5 years"
+          },
+          {
+            "key": "D",
+            "label": "6–10 years"
+          },
+          {
+            "key": "E",
+            "label": "More than 10 years"
+          }
+        ]
+      }
+    },
+    {
+      "key": "PRF-03",
+      "data": {
+        "type": "multi_select",
+        "prompt": "Which industries have you worked or studied in? Choose up to three.",
+        "min_selections": 1,
+        "max_selections": 3,
+        "options": [
+          {
+            "key": "fin",
+            "label": "Financial services"
+          },
+          {
+            "key": "tech",
+            "label": "Technology"
+          },
+          {
+            "key": "mfg",
+            "label": "Manufacturing"
+          },
+          {
+            "key": "energy",
+            "label": "Energy & utilities"
+          },
+          {
+            "key": "health",
+            "label": "Healthcare"
+          },
+          {
+            "key": "retail",
+            "label": "Retail & consumer"
+          },
+          {
+            "key": "public",
+            "label": "Public sector"
+          },
+          {
+            "key": "telco",
+            "label": "Telecoms & media"
+          },
+          {
+            "key": "other",
+            "label": "Other"
+          }
+        ]
+      }
+    },
+    {
+      "key": "PRF-04",
+      "data": {
+        "type": "single_choice",
+        "prompt": "Have you worked in consulting before?",
+        "options": [
+          {
+            "key": "A",
+            "label": "No"
+          },
+          {
+            "key": "B",
+            "label": "Internship or a single project"
+          },
+          {
+            "key": "C",
+            "label": "Yes — up to 2 years"
+          },
+          {
+            "key": "D",
+            "label": "Yes — more than 2 years"
+          }
+        ]
+      }
+    },
+    {
+      "key": "PRF-05",
+      "data": {
+        "type": "single_choice",
+        "prompt": "What was your role in the largest transformation or change programme you have been part of?",
+        "options": [
+          {
+            "key": "A",
+            "label": "I haven't been part of one"
+          },
+          {
+            "key": "B",
+            "label": "Team member"
+          },
+          {
+            "key": "C",
+            "label": "Workstream lead"
+          },
+          {
+            "key": "D",
+            "label": "Programme lead or sponsor"
+          }
+        ]
+      }
+    },
+    {
+      "key": "PRF-06",
+      "data": {
+        "type": "single_choice",
+        "prompt": "What international experience do you have?",
+        "options": [
+          {
+            "key": "A",
+            "label": "None yet"
+          },
+          {
+            "key": "B",
+            "label": "Worked with international colleagues or clients remotely"
+          },
+          {
+            "key": "C",
+            "label": "Worked abroad for less than a year"
+          },
+          {
+            "key": "D",
+            "label": "Worked abroad for a year or more"
+          }
+        ]
+      }
+    },
+    {
+      "key": "PRF-07",
+      "data": {
+        "type": "free_text",
+        "prompt": "Briefly describe the project or role most relevant to consulting that you have done: the problem, what you did, and the result.",
+        "min_words": 30,
+        "max_length": 1200
+      }
+    },
+    {
+      "key": "MOT-01",
+      "data": {
+        "type": "single_choice",
+        "prompt": "What is the main reason you want to work in consulting?",
+        "options": [
+          {
+            "key": "A",
+            "label": "Solving varied, complex problems"
+          },
+          {
+            "key": "B",
+            "label": "Accelerating my learning and career"
+          },
+          {
+            "key": "C",
+            "label": "Shaping how organisations transform"
+          },
+          {
+            "key": "D",
+            "label": "Working with senior decision-makers"
+          }
+        ]
+      }
+    },
+    {
+      "key": "MOT-02",
+      "data": {
+        "type": "multi_select",
+        "prompt": "Which practice areas interest you most? Choose up to three.",
+        "min_selections": 1,
+        "max_selections": 3,
+        "options": [
+          {
+            "key": "strategy",
+            "label": "Strategy"
+          },
+          {
+            "key": "ops",
+            "label": "Operations & process"
+          },
+          {
+            "key": "tech_ai",
+            "label": "Technology & AI transformation"
+          },
+          {
+            "key": "org",
+            "label": "Organisation, people & change"
+          },
+          {
+            "key": "delivery",
+            "label": "Programme delivery"
+          },
+          {
+            "key": "research",
+            "label": "Research & insight"
+          }
+        ]
+      }
+    },
+    {
+      "key": "MOT-03",
+      "data": {
+        "type": "single_choice",
+        "prompt": "When could you start a consulting role or programme?",
+        "options": [
+          {
+            "key": "A",
+            "label": "Immediately"
+          },
+          {
+            "key": "B",
+            "label": "Within 3 months"
+          },
+          {
+            "key": "C",
+            "label": "In 3–6 months"
+          },
+          {
+            "key": "D",
+            "label": "Later than 6 months"
+          }
+        ]
+      }
+    },
+    {
+      "key": "MOT-04",
+      "data": {
+        "type": "likert",
+        "prompt": "“I am comfortable with frequent travel and working at client sites.”",
+        "options": [
+          {
+            "key": "1",
+            "label": "Strongly disagree"
+          },
+          {
+            "key": "2",
+            "label": "Disagree"
+          },
+          {
+            "key": "3",
+            "label": "Neutral"
+          },
+          {
+            "key": "4",
+            "label": "Agree"
+          },
+          {
+            "key": "5",
+            "label": "Strongly agree"
+          }
+        ]
+      }
+    },
+    {
+      "key": "MOT-05",
+      "data": {
+        "type": "single_choice",
+        "prompt": "Which development route would suit you best?",
+        "options": [
+          {
+            "key": "A",
+            "label": "A structured foundation programme"
+          },
+          {
+            "key": "B",
+            "label": "An apprenticeship on live projects"
+          },
+          {
+            "key": "C",
+            "label": "Mentoring alongside my current job"
+          },
+          {
+            "key": "D",
+            "label": "Self-paced learning"
+          }
+        ]
+      }
+    },
+    {
+      "key": "MOT-06",
+      "data": {
+        "type": "free_text",
+        "prompt": "Where would you like your career to be in 5–10 years, and what support would help you get there?",
+        "min_words": 25,
+        "max_length": 1200
+      }
+    },
+    {
+      "key": "TD-01",
+      "data": {
+        "type": "rank",
+        "prompt": "When I start a new piece of work, I most naturally…",
+        "scoring_rule": {
+          "method": "rank_points",
+          "points": [
+            4,
+            3,
+            2,
+            1
+          ]
+        },
+        "options": [
+          {
+            "key": "A",
+            "label": "make sure I understand why it matters",
+            "maps_to": "purpose_motivation"
+          },
+          {
+            "key": "B",
+            "label": "learn everything I can about the topic",
+            "maps_to": "learning_curiosity"
+          },
+          {
+            "key": "C",
+            "label": "map how all the parts connect",
+            "maps_to": "systems_thinking"
+          },
+          {
+            "key": "D",
+            "label": "look for a better way to do it",
+            "maps_to": "innovation"
+          }
+        ]
+      }
+    },
+    {
+      "key": "TD-02",
+      "data": {
+        "type": "rank",
+        "prompt": "In a team, I add the most value by…",
+        "scoring_rule": {
+          "method": "rank_points",
+          "points": [
+            4,
+            3,
+            2,
+            1
+          ]
+        },
+        "options": [
+          {
+            "key": "A",
+            "label": "explaining ideas so everyone understands them",
+            "maps_to": "communication_collaboration"
+          },
+          {
+            "key": "B",
+            "label": "taking ownership of difficult decisions",
+            "maps_to": "leadership_judgement"
+          },
+          {
+            "key": "C",
+            "label": "building trust between people",
+            "maps_to": "teamwork_relationships"
+          },
+          {
+            "key": "D",
+            "label": "keeping the client's real need in focus",
+            "maps_to": "consulting_dna"
+          }
+        ]
+      }
+    },
+    {
+      "key": "TD-03",
+      "data": {
+        "type": "rank",
+        "prompt": "What energises me most is…",
+        "scoring_rule": {
+          "method": "rank_points",
+          "points": [
+            4,
+            3,
+            2,
+            1
+          ]
+        },
+        "options": [
+          {
+            "key": "A",
+            "label": "spotting trends that will reshape industries",
+            "maps_to": "future_global"
+          },
+          {
+            "key": "B",
+            "label": "mastering something new",
+            "maps_to": "learning_curiosity"
+          },
+          {
+            "key": "C",
+            "label": "improving a whole system, not just one part",
+            "maps_to": "systems_thinking"
+          },
+          {
+            "key": "D",
+            "label": "creating something that didn't exist before",
+            "maps_to": "innovation"
+          }
+        ]
+      }
+    },
+    {
+      "key": "TD-04",
+      "data": {
+        "type": "rank",
+        "prompt": "When a client pushes back on my recommendation, I…",
+        "scoring_rule": {
+          "method": "rank_points",
+          "points": [
+            4,
+            3,
+            2,
+            1
+          ]
+        },
+        "options": [
+          {
+            "key": "A",
+            "label": "listen carefully and restate their concern",
+            "maps_to": "communication_collaboration"
+          },
+          {
+            "key": "B",
+            "label": "weigh the evidence again and hold my position if it stands",
+            "maps_to": "leadership_judgement"
+          },
+          {
+            "key": "C",
+            "label": "find out what they value and reframe the idea",
+            "maps_to": "consulting_dna"
+          },
+          {
+            "key": "D",
+            "label": "bring colleagues together to find common ground",
+            "maps_to": "teamwork_relationships"
+          }
+        ]
+      }
+    },
+    {
+      "key": "TD-05",
+      "data": {
+        "type": "rank",
+        "prompt": "The work I would be proudest of is work that…",
+        "scoring_rule": {
+          "method": "rank_points",
+          "points": [
+            4,
+            3,
+            2,
+            1
+          ]
+        },
+        "options": [
+          {
+            "key": "A",
+            "label": "had a lasting positive impact",
+            "maps_to": "purpose_motivation"
+          },
+          {
+            "key": "B",
+            "label": "changed how a market or industry works",
+            "maps_to": "future_global"
+          },
+          {
+            "key": "C",
+            "label": "saw a team through a hard problem",
+            "maps_to": "leadership_judgement"
+          },
+          {
+            "key": "D",
+            "label": "pioneered a new approach",
+            "maps_to": "innovation"
+          }
+        ]
+      }
+    },
+    {
+      "key": "TD-06",
+      "data": {
+        "type": "rank",
+        "prompt": "I learn best by…",
+        "scoring_rule": {
+          "method": "rank_points",
+          "points": [
+            4,
+            3,
+            2,
+            1
+          ]
+        },
+        "options": [
+          {
+            "key": "A",
+            "label": "doing it, then reflecting on what happened",
+            "maps_to": "learning_curiosity"
+          },
+          {
+            "key": "B",
+            "label": "talking it through with others",
+            "maps_to": "teamwork_relationships"
+          },
+          {
+            "key": "C",
+            "label": "modelling how the pieces fit together",
+            "maps_to": "systems_thinking"
+          },
+          {
+            "key": "D",
+            "label": "testing ideas with real clients or users",
+            "maps_to": "consulting_dna"
+          }
+        ]
+      }
+    },
+    {
+      "key": "VAL-01",
+      "data": {
+        "type": "likert",
+        "prompt": "It matters to them to form their own views and decide for themselves how to tackle a problem.",
+        "value_map": [
+          {
+            "value_key": "self_direction",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "likert_value"
+        },
+        "options": [
+          {
+            "key": "1",
+            "label": "Not like me at all"
+          },
+          {
+            "key": "2",
+            "label": "Not like me"
+          },
+          {
+            "key": "3",
+            "label": "A little like me"
+          },
+          {
+            "key": "4",
+            "label": "Somewhat like me"
+          },
+          {
+            "key": "5",
+            "label": "Like me"
+          },
+          {
+            "key": "6",
+            "label": "Very much like me"
+          }
+        ]
+      }
+    },
+    {
+      "key": "VAL-02",
+      "data": {
+        "type": "likert",
+        "prompt": "They like to explore ideas freely and follow their curiosity.",
+        "value_map": [
+          {
+            "value_key": "self_direction",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "likert_value"
+        },
+        "options": [
+          {
+            "key": "1",
+            "label": "Not like me at all"
+          },
+          {
+            "key": "2",
+            "label": "Not like me"
+          },
+          {
+            "key": "3",
+            "label": "A little like me"
+          },
+          {
+            "key": "4",
+            "label": "Somewhat like me"
+          },
+          {
+            "key": "5",
+            "label": "Like me"
+          },
+          {
+            "key": "6",
+            "label": "Very much like me"
+          }
+        ]
+      }
+    },
+    {
+      "key": "VAL-03",
+      "data": {
+        "type": "likert",
+        "prompt": "They look for work that brings new challenges and variety.",
+        "value_map": [
+          {
+            "value_key": "stimulation",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "likert_value"
+        },
+        "options": [
+          {
+            "key": "1",
+            "label": "Not like me at all"
+          },
+          {
+            "key": "2",
+            "label": "Not like me"
+          },
+          {
+            "key": "3",
+            "label": "A little like me"
+          },
+          {
+            "key": "4",
+            "label": "Somewhat like me"
+          },
+          {
+            "key": "5",
+            "label": "Like me"
+          },
+          {
+            "key": "6",
+            "label": "Very much like me"
+          }
+        ]
+      }
+    },
+    {
+      "key": "VAL-04",
+      "data": {
+        "type": "likert",
+        "prompt": "Routine bores them; they are energised by change and the unfamiliar.",
+        "value_map": [
+          {
+            "value_key": "stimulation",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "likert_value"
+        },
+        "options": [
+          {
+            "key": "1",
+            "label": "Not like me at all"
+          },
+          {
+            "key": "2",
+            "label": "Not like me"
+          },
+          {
+            "key": "3",
+            "label": "A little like me"
+          },
+          {
+            "key": "4",
+            "label": "Somewhat like me"
+          },
+          {
+            "key": "5",
+            "label": "Like me"
+          },
+          {
+            "key": "6",
+            "label": "Very much like me"
+          }
+        ]
+      }
+    },
+    {
+      "key": "VAL-05",
+      "data": {
+        "type": "likert",
+        "prompt": "Enjoying their work from day to day matters a great deal to them.",
+        "value_map": [
+          {
+            "value_key": "hedonism",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "likert_value"
+        },
+        "options": [
+          {
+            "key": "1",
+            "label": "Not like me at all"
+          },
+          {
+            "key": "2",
+            "label": "Not like me"
+          },
+          {
+            "key": "3",
+            "label": "A little like me"
+          },
+          {
+            "key": "4",
+            "label": "Somewhat like me"
+          },
+          {
+            "key": "5",
+            "label": "Like me"
+          },
+          {
+            "key": "6",
+            "label": "Very much like me"
+          }
+        ]
+      }
+    },
+    {
+      "key": "VAL-06",
+      "data": {
+        "type": "likert",
+        "prompt": "They make time for the things that bring them pleasure and fun.",
+        "value_map": [
+          {
+            "value_key": "hedonism",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "likert_value"
+        },
+        "options": [
+          {
+            "key": "1",
+            "label": "Not like me at all"
+          },
+          {
+            "key": "2",
+            "label": "Not like me"
+          },
+          {
+            "key": "3",
+            "label": "A little like me"
+          },
+          {
+            "key": "4",
+            "label": "Somewhat like me"
+          },
+          {
+            "key": "5",
+            "label": "Like me"
+          },
+          {
+            "key": "6",
+            "label": "Very much like me"
+          }
+        ]
+      }
+    },
+    {
+      "key": "VAL-07",
+      "data": {
+        "type": "likert",
+        "prompt": "Being highly capable and recognised for their results is important to them.",
+        "value_map": [
+          {
+            "value_key": "achievement",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "likert_value"
+        },
+        "options": [
+          {
+            "key": "1",
+            "label": "Not like me at all"
+          },
+          {
+            "key": "2",
+            "label": "Not like me"
+          },
+          {
+            "key": "3",
+            "label": "A little like me"
+          },
+          {
+            "key": "4",
+            "label": "Somewhat like me"
+          },
+          {
+            "key": "5",
+            "label": "Like me"
+          },
+          {
+            "key": "6",
+            "label": "Very much like me"
+          }
+        ]
+      }
+    },
+    {
+      "key": "VAL-08",
+      "data": {
+        "type": "likert",
+        "prompt": "They set ambitious goals and push hard to reach them.",
+        "value_map": [
+          {
+            "value_key": "achievement",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "likert_value"
+        },
+        "options": [
+          {
+            "key": "1",
+            "label": "Not like me at all"
+          },
+          {
+            "key": "2",
+            "label": "Not like me"
+          },
+          {
+            "key": "3",
+            "label": "A little like me"
+          },
+          {
+            "key": "4",
+            "label": "Somewhat like me"
+          },
+          {
+            "key": "5",
+            "label": "Like me"
+          },
+          {
+            "key": "6",
+            "label": "Very much like me"
+          }
+        ]
+      }
+    },
+    {
+      "key": "VAL-09",
+      "data": {
+        "type": "likert",
+        "prompt": "They want to be in positions where they direct decisions and resources.",
+        "value_map": [
+          {
+            "value_key": "power",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "likert_value"
+        },
+        "options": [
+          {
+            "key": "1",
+            "label": "Not like me at all"
+          },
+          {
+            "key": "2",
+            "label": "Not like me"
+          },
+          {
+            "key": "3",
+            "label": "A little like me"
+          },
+          {
+            "key": "4",
+            "label": "Somewhat like me"
+          },
+          {
+            "key": "5",
+            "label": "Like me"
+          },
+          {
+            "key": "6",
+            "label": "Very much like me"
+          }
+        ]
+      }
+    },
+    {
+      "key": "VAL-10",
+      "data": {
+        "type": "likert",
+        "prompt": "Status and influence in an organisation matter to them.",
+        "value_map": [
+          {
+            "value_key": "power",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "likert_value"
+        },
+        "options": [
+          {
+            "key": "1",
+            "label": "Not like me at all"
+          },
+          {
+            "key": "2",
+            "label": "Not like me"
+          },
+          {
+            "key": "3",
+            "label": "A little like me"
+          },
+          {
+            "key": "4",
+            "label": "Somewhat like me"
+          },
+          {
+            "key": "5",
+            "label": "Like me"
+          },
+          {
+            "key": "6",
+            "label": "Very much like me"
+          }
+        ]
+      }
+    },
+    {
+      "key": "VAL-11",
+      "data": {
+        "type": "likert",
+        "prompt": "They value stability and predictable, well-controlled ways of working.",
+        "value_map": [
+          {
+            "value_key": "security",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "likert_value"
+        },
+        "options": [
+          {
+            "key": "1",
+            "label": "Not like me at all"
+          },
+          {
+            "key": "2",
+            "label": "Not like me"
+          },
+          {
+            "key": "3",
+            "label": "A little like me"
+          },
+          {
+            "key": "4",
+            "label": "Somewhat like me"
+          },
+          {
+            "key": "5",
+            "label": "Like me"
+          },
+          {
+            "key": "6",
+            "label": "Very much like me"
+          }
+        ]
+      }
+    },
+    {
+      "key": "VAL-12",
+      "data": {
+        "type": "likert",
+        "prompt": "Avoiding unnecessary risk is important to them.",
+        "value_map": [
+          {
+            "value_key": "security",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "likert_value"
+        },
+        "options": [
+          {
+            "key": "1",
+            "label": "Not like me at all"
+          },
+          {
+            "key": "2",
+            "label": "Not like me"
+          },
+          {
+            "key": "3",
+            "label": "A little like me"
+          },
+          {
+            "key": "4",
+            "label": "Somewhat like me"
+          },
+          {
+            "key": "5",
+            "label": "Like me"
+          },
+          {
+            "key": "6",
+            "label": "Very much like me"
+          }
+        ]
+      }
+    },
+    {
+      "key": "VAL-13",
+      "data": {
+        "type": "likert",
+        "prompt": "They think it is important to follow agreed rules and procedures, even when no one is checking.",
+        "value_map": [
+          {
+            "value_key": "conformity",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "likert_value"
+        },
+        "options": [
+          {
+            "key": "1",
+            "label": "Not like me at all"
+          },
+          {
+            "key": "2",
+            "label": "Not like me"
+          },
+          {
+            "key": "3",
+            "label": "A little like me"
+          },
+          {
+            "key": "4",
+            "label": "Somewhat like me"
+          },
+          {
+            "key": "5",
+            "label": "Like me"
+          },
+          {
+            "key": "6",
+            "label": "Very much like me"
+          }
+        ]
+      }
+    },
+    {
+      "key": "VAL-14",
+      "data": {
+        "type": "likert",
+        "prompt": "They avoid doing anything that might upset or let down the people around them.",
+        "value_map": [
+          {
+            "value_key": "conformity",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "likert_value"
+        },
+        "options": [
+          {
+            "key": "1",
+            "label": "Not like me at all"
+          },
+          {
+            "key": "2",
+            "label": "Not like me"
+          },
+          {
+            "key": "3",
+            "label": "A little like me"
+          },
+          {
+            "key": "4",
+            "label": "Somewhat like me"
+          },
+          {
+            "key": "5",
+            "label": "Like me"
+          },
+          {
+            "key": "6",
+            "label": "Very much like me"
+          }
+        ]
+      }
+    },
+    {
+      "key": "VAL-15",
+      "data": {
+        "type": "likert",
+        "prompt": "They respect established ways of doing things and the reasons behind them.",
+        "value_map": [
+          {
+            "value_key": "tradition",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "likert_value"
+        },
+        "options": [
+          {
+            "key": "1",
+            "label": "Not like me at all"
+          },
+          {
+            "key": "2",
+            "label": "Not like me"
+          },
+          {
+            "key": "3",
+            "label": "A little like me"
+          },
+          {
+            "key": "4",
+            "label": "Somewhat like me"
+          },
+          {
+            "key": "5",
+            "label": "Like me"
+          },
+          {
+            "key": "6",
+            "label": "Very much like me"
+          }
+        ]
+      }
+    },
+    {
+      "key": "VAL-16",
+      "data": {
+        "type": "likert",
+        "prompt": "Honouring the customs and commitments they grew up with matters to them.",
+        "value_map": [
+          {
+            "value_key": "tradition",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "likert_value"
+        },
+        "options": [
+          {
+            "key": "1",
+            "label": "Not like me at all"
+          },
+          {
+            "key": "2",
+            "label": "Not like me"
+          },
+          {
+            "key": "3",
+            "label": "A little like me"
+          },
+          {
+            "key": "4",
+            "label": "Somewhat like me"
+          },
+          {
+            "key": "5",
+            "label": "Like me"
+          },
+          {
+            "key": "6",
+            "label": "Very much like me"
+          }
+        ]
+      }
+    },
+    {
+      "key": "VAL-17",
+      "data": {
+        "type": "likert",
+        "prompt": "Supporting the people they work closely with is very important to them.",
+        "value_map": [
+          {
+            "value_key": "benevolence",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "likert_value"
+        },
+        "options": [
+          {
+            "key": "1",
+            "label": "Not like me at all"
+          },
+          {
+            "key": "2",
+            "label": "Not like me"
+          },
+          {
+            "key": "3",
+            "label": "A little like me"
+          },
+          {
+            "key": "4",
+            "label": "Somewhat like me"
+          },
+          {
+            "key": "5",
+            "label": "Like me"
+          },
+          {
+            "key": "6",
+            "label": "Very much like me"
+          }
+        ]
+      }
+    },
+    {
+      "key": "VAL-18",
+      "data": {
+        "type": "likert",
+        "prompt": "They want their colleagues to be able to rely on them completely.",
+        "value_map": [
+          {
+            "value_key": "benevolence",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "likert_value"
+        },
+        "options": [
+          {
+            "key": "1",
+            "label": "Not like me at all"
+          },
+          {
+            "key": "2",
+            "label": "Not like me"
+          },
+          {
+            "key": "3",
+            "label": "A little like me"
+          },
+          {
+            "key": "4",
+            "label": "Somewhat like me"
+          },
+          {
+            "key": "5",
+            "label": "Like me"
+          },
+          {
+            "key": "6",
+            "label": "Very much like me"
+          }
+        ]
+      }
+    },
+    {
+      "key": "VAL-19",
+      "data": {
+        "type": "likert",
+        "prompt": "They care about the wider impact of decisions on society and the environment.",
+        "value_map": [
+          {
+            "value_key": "universalism",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "likert_value"
+        },
+        "options": [
+          {
+            "key": "1",
+            "label": "Not like me at all"
+          },
+          {
+            "key": "2",
+            "label": "Not like me"
+          },
+          {
+            "key": "3",
+            "label": "A little like me"
+          },
+          {
+            "key": "4",
+            "label": "Somewhat like me"
+          },
+          {
+            "key": "5",
+            "label": "Like me"
+          },
+          {
+            "key": "6",
+            "label": "Very much like me"
+          }
+        ]
+      }
+    },
+    {
+      "key": "VAL-20",
+      "data": {
+        "type": "likert",
+        "prompt": "They believe everyone should be treated fairly, including people they will never meet.",
+        "value_map": [
+          {
+            "value_key": "universalism",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "likert_value"
+        },
+        "options": [
+          {
+            "key": "1",
+            "label": "Not like me at all"
+          },
+          {
+            "key": "2",
+            "label": "Not like me"
+          },
+          {
+            "key": "3",
+            "label": "A little like me"
+          },
+          {
+            "key": "4",
+            "label": "Somewhat like me"
+          },
+          {
+            "key": "5",
+            "label": "Like me"
+          },
+          {
+            "key": "6",
+            "label": "Very much like me"
+          }
+        ]
+      }
+    },
+    {
+      "key": "CAP-01",
+      "data": {
+        "type": "single_choice",
+        "prompt": "A client's revenue is flat while competitors are growing. What is the best first step?",
+        "competency_map": [
+          {
+            "competency_key": "research_structuring",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "correct_option",
+          "correct": "B"
+        },
+        "options": [
+          {
+            "key": "A",
+            "label": "Recommend a price cut to win back share"
+          },
+          {
+            "key": "B",
+            "label": "Agree the key question, then break revenue into drivers (volume, price, mix) to locate the gap"
+          },
+          {
+            "key": "C",
+            "label": "Benchmark competitors' salaries"
+          },
+          {
+            "key": "D",
+            "label": "Launch a new product line"
+          }
+        ]
+      }
+    },
+    {
+      "key": "CAP-02",
+      "data": {
+        "type": "single_choice",
+        "prompt": "What makes an issue tree “MECE”?",
+        "competency_map": [
+          {
+            "competency_key": "research_structuring",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "correct_option",
+          "correct": "A"
+        },
+        "options": [
+          {
+            "key": "A",
+            "label": "Its branches are mutually exclusive and collectively exhaustive"
+          },
+          {
+            "key": "B",
+            "label": "Its branches are ranked by importance"
+          },
+          {
+            "key": "C",
+            "label": "Every branch has a hypothesis"
+          },
+          {
+            "key": "D",
+            "label": "It uses only financial measures"
+          }
+        ]
+      }
+    },
+    {
+      "key": "CAP-03",
+      "data": {
+        "type": "single_choice",
+        "prompt": "A company's strategy is to “grow with mid-market customers”. Which initiative best turns this into action?",
+        "competency_map": [
+          {
+            "competency_key": "strategy_enterprise",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "correct_option",
+          "correct": "C"
+        },
+        "options": [
+          {
+            "key": "A",
+            "label": "Remove all enterprise sales roles"
+          },
+          {
+            "key": "B",
+            "label": "Refresh the company logo"
+          },
+          {
+            "key": "C",
+            "label": "Redesign the offer, pricing and sales channel for mid-market buyers, with target KPIs"
+          },
+          {
+            "key": "D",
+            "label": "Take on more office space"
+          }
+        ]
+      }
+    },
+    {
+      "key": "CAP-04",
+      "data": {
+        "type": "single_choice",
+        "prompt": "What is the main purpose of a hypothesis-driven approach?",
+        "competency_map": [
+          {
+            "competency_key": "research_structuring",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "correct_option",
+          "correct": "D"
+        },
+        "options": [
+          {
+            "key": "A",
+            "label": "To prove the client wrong"
+          },
+          {
+            "key": "B",
+            "label": "To avoid collecting data"
+          },
+          {
+            "key": "C",
+            "label": "To replace stakeholder interviews"
+          },
+          {
+            "key": "D",
+            "label": "To focus analysis on what would actually change the recommendation"
+          }
+        ]
+      }
+    },
+    {
+      "key": "CAP-05",
+      "data": {
+        "type": "single_choice",
+        "prompt": "You need to estimate the market for e-bike rentals in one city. Which is the most defensible starting point?",
+        "competency_map": [
+          {
+            "competency_key": "data_ai_commercial",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "correct_option",
+          "correct": "B"
+        },
+        "options": [
+          {
+            "key": "A",
+            "label": "Global electric-vehicle sales"
+          },
+          {
+            "key": "B",
+            "label": "Population → commuters within range → share open to e-bikes → trips per year × price"
+          },
+          {
+            "key": "C",
+            "label": "A guess at a competitor's revenue"
+          },
+          {
+            "key": "D",
+            "label": "The client's own sales target"
+          }
+        ]
+      }
+    },
+    {
+      "key": "CAP-06",
+      "data": {
+        "type": "single_choice",
+        "prompt": "Value chain analysis is mainly used to…",
+        "competency_map": [
+          {
+            "competency_key": "value_chain_operating_model",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "correct_option",
+          "correct": "A"
+        },
+        "options": [
+          {
+            "key": "A",
+            "label": "find where activities create or destroy value and cost"
+          },
+          {
+            "key": "B",
+            "label": "list the company's suppliers"
+          },
+          {
+            "key": "C",
+            "label": "calculate tax liabilities"
+          },
+          {
+            "key": "D",
+            "label": "choose a brand identity"
+          }
+        ]
+      }
+    },
+    {
+      "key": "CAP-07",
+      "data": {
+        "type": "single_choice",
+        "prompt": "What does SIPOC stand for?",
+        "competency_map": [
+          {
+            "competency_key": "value_chain_operating_model",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "correct_option",
+          "correct": "C"
+        },
+        "options": [
+          {
+            "key": "A",
+            "label": "Strategy, Inputs, People, Operations, Controls"
+          },
+          {
+            "key": "B",
+            "label": "Systems, Integration, Planning, Ownership, Costs"
+          },
+          {
+            "key": "C",
+            "label": "Suppliers, Inputs, Process, Outputs, Customers"
+          },
+          {
+            "key": "D",
+            "label": "Sales, Inventory, Production, Orders, Cash"
+          }
+        ]
+      }
+    },
+    {
+      "key": "CAP-08",
+      "data": {
+        "type": "single_choice",
+        "prompt": "Which of these is NOT normally a component of a target operating model?",
+        "competency_map": [
+          {
+            "competency_key": "value_chain_operating_model",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "correct_option",
+          "correct": "D"
+        },
+        "options": [
+          {
+            "key": "A",
+            "label": "Processes"
+          },
+          {
+            "key": "B",
+            "label": "Organisation and roles"
+          },
+          {
+            "key": "C",
+            "label": "Technology and data"
+          },
+          {
+            "key": "D",
+            "label": "The company's share-price history"
+          }
+        ]
+      }
+    },
+    {
+      "key": "CAP-09",
+      "data": {
+        "type": "single_choice",
+        "prompt": "One step in a process is a bottleneck. What happens to the throughput of the whole process?",
+        "competency_map": [
+          {
+            "competency_key": "value_chain_operating_model",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "correct_option",
+          "correct": "B"
+        },
+        "options": [
+          {
+            "key": "A",
+            "label": "It rises to match the fastest step"
+          },
+          {
+            "key": "B",
+            "label": "It is limited by the bottleneck step"
+          },
+          {
+            "key": "C",
+            "label": "It is unaffected"
+          },
+          {
+            "key": "D",
+            "label": "It doubles if staff are added at any step"
+          }
+        ]
+      }
+    },
+    {
+      "key": "CAP-10",
+      "data": {
+        "type": "single_choice",
+        "prompt": "A business requirement is “traceable” when…",
+        "competency_map": [
+          {
+            "competency_key": "value_chain_operating_model",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "correct_option",
+          "correct": "A"
+        },
+        "options": [
+          {
+            "key": "A",
+            "label": "it links back to a business need and forward to its design and tests"
+          },
+          {
+            "key": "B",
+            "label": "it has been approved by IT"
+          },
+          {
+            "key": "C",
+            "label": "it is written as a user story"
+          },
+          {
+            "key": "D",
+            "label": "it has a deadline"
+          }
+        ]
+      }
+    },
+    {
+      "key": "CAP-11",
+      "data": {
+        "type": "single_choice",
+        "prompt": "What should a change impact assessment establish first?",
+        "competency_map": [
+          {
+            "competency_key": "transformation_delivery",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "correct_option",
+          "correct": "C"
+        },
+        "options": [
+          {
+            "key": "A",
+            "label": "The training budget"
+          },
+          {
+            "key": "B",
+            "label": "A slogan for the communications plan"
+          },
+          {
+            "key": "C",
+            "label": "Who is affected, how, and by how much"
+          },
+          {
+            "key": "D",
+            "label": "Which system vendor to use"
+          }
+        ]
+      }
+    },
+    {
+      "key": "CAP-12",
+      "data": {
+        "type": "single_choice",
+        "prompt": "What does a RACI chart clarify?",
+        "competency_map": [
+          {
+            "competency_key": "transformation_delivery",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "correct_option",
+          "correct": "D"
+        },
+        "options": [
+          {
+            "key": "A",
+            "label": "Project costs by phase"
+          },
+          {
+            "key": "B",
+            "label": "Risk scores"
+          },
+          {
+            "key": "C",
+            "label": "The office seating plan"
+          },
+          {
+            "key": "D",
+            "label": "Who is Responsible, Accountable, Consulted and Informed for each task or decision"
+          }
+        ]
+      }
+    },
+    {
+      "key": "CAP-13",
+      "data": {
+        "type": "single_choice",
+        "prompt": "A programme has 12 candidate initiatives and a limited budget. What is the best way to prioritise?",
+        "competency_map": [
+          {
+            "competency_key": "transformation_delivery",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "correct_option",
+          "correct": "A"
+        },
+        "options": [
+          {
+            "key": "A",
+            "label": "Score each on value, effort, risk and dependencies, then sequence them"
+          },
+          {
+            "key": "B",
+            "label": "Start with the cheapest ones"
+          },
+          {
+            "key": "C",
+            "label": "Let each sponsor decide for their own area"
+          },
+          {
+            "key": "D",
+            "label": "Start all of them at once"
+          }
+        ]
+      }
+    },
+    {
+      "key": "CAP-14",
+      "data": {
+        "type": "single_choice",
+        "prompt": "What does “benefits realisation” mean in a programme?",
+        "competency_map": [
+          {
+            "competency_key": "transformation_delivery",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "correct_option",
+          "correct": "B"
+        },
+        "options": [
+          {
+            "key": "A",
+            "label": "Announcing the programme to staff"
+          },
+          {
+            "key": "B",
+            "label": "Tracking that the expected outcomes are actually delivered after go-live, with owners and measures"
+          },
+          {
+            "key": "C",
+            "label": "Paying vendors on time"
+          },
+          {
+            "key": "D",
+            "label": "Closing the project budget"
+          }
+        ]
+      }
+    },
+    {
+      "key": "CAP-15",
+      "data": {
+        "type": "single_choice",
+        "prompt": "A stakeholder has high influence but does not support the change. What is the best approach?",
+        "competency_map": [
+          {
+            "competency_key": "stakeholder_leadership",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "correct_option",
+          "correct": "C"
+        },
+        "options": [
+          {
+            "key": "A",
+            "label": "Leave them out of meetings"
+          },
+          {
+            "key": "B",
+            "label": "Escalate to the CEO straight away"
+          },
+          {
+            "key": "C",
+            "label": "Engage early to understand their concerns and involve them in shaping the solution"
+          },
+          {
+            "key": "D",
+            "label": "Wait until go-live to inform them"
+          }
+        ]
+      }
+    },
+    {
+      "key": "CAP-16",
+      "data": {
+        "type": "single_choice",
+        "prompt": "Which is the best KPI for a customer-service transformation?",
+        "competency_map": [
+          {
+            "competency_key": "data_ai_commercial",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "correct_option",
+          "correct": "D"
+        },
+        "options": [
+          {
+            "key": "A",
+            "label": "Number of project meetings held"
+          },
+          {
+            "key": "B",
+            "label": "Hours of training delivered"
+          },
+          {
+            "key": "C",
+            "label": "Number of software licences bought"
+          },
+          {
+            "key": "D",
+            "label": "An outcome such as first-contact resolution rate, with a baseline and a target"
+          }
+        ]
+      }
+    },
+    {
+      "key": "CAP-17",
+      "data": {
+        "type": "single_choice",
+        "prompt": "What is the best first question when framing an AI use case?",
+        "competency_map": [
+          {
+            "competency_key": "data_ai_commercial",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "correct_option",
+          "correct": "A"
+        },
+        "options": [
+          {
+            "key": "A",
+            "label": "Which business decision or process would improve, and how would we measure it?"
+          },
+          {
+            "key": "B",
+            "label": "Which model is the newest?"
+          },
+          {
+            "key": "C",
+            "label": "How much computing power can we buy?"
+          },
+          {
+            "key": "D",
+            "label": "Can we avoid involving the users?"
+          }
+        ]
+      }
+    },
+    {
+      "key": "CAP-18",
+      "data": {
+        "type": "single_choice",
+        "prompt": "An AI model will screen loan applications. Which check matters most before launch?",
+        "competency_map": [
+          {
+            "competency_key": "judgement_learning",
+            "weight": 1
+          },
+          {
+            "competency_key": "data_ai_commercial",
+            "weight": 0.5
+          }
+        ],
+        "scoring_rule": {
+          "method": "correct_option",
+          "correct": "C"
+        },
+        "options": [
+          {
+            "key": "A",
+            "label": "The colour scheme of the interface"
+          },
+          {
+            "key": "B",
+            "label": "Response speed"
+          },
+          {
+            "key": "C",
+            "label": "Testing for bias, and making sure a person can review and applicants can appeal decisions"
+          },
+          {
+            "key": "D",
+            "label": "The number of model parameters"
+          }
+        ]
+      }
+    },
+    {
+      "key": "CAP-19",
+      "data": {
+        "type": "single_choice",
+        "prompt": "A client asks you to change figures in your analysis so it supports their preferred option. What do you do?",
+        "competency_map": [
+          {
+            "competency_key": "judgement_learning",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "correct_option",
+          "correct": "B"
+        },
+        "options": [
+          {
+            "key": "A",
+            "label": "Change them — the client is paying"
+          },
+          {
+            "key": "B",
+            "label": "Explain what the evidence shows, discuss the options openly, and escalate if the pressure continues"
+          },
+          {
+            "key": "C",
+            "label": "Refuse to discuss it"
+          },
+          {
+            "key": "D",
+            "label": "Delete the analysis"
+          }
+        ]
+      }
+    },
+    {
+      "key": "CAP-20",
+      "data": {
+        "type": "single_choice",
+        "prompt": "An investment costs 1.0 million up front and returns 0.4 million a year. Ignoring discounting, what is the payback period?",
+        "competency_map": [
+          {
+            "competency_key": "data_ai_commercial",
+            "weight": 1
+          }
+        ],
+        "scoring_rule": {
+          "method": "correct_option",
+          "correct": "D"
+        },
+        "options": [
+          {
+            "key": "A",
+            "label": "1 year"
+          },
+          {
+            "key": "B",
+            "label": "4 years"
+          },
+          {
+            "key": "C",
+            "label": "1.6 years"
+          },
+          {
+            "key": "D",
+            "label": "2.5 years"
+          }
+        ]
+      }
+    },
+    {
+      "key": "WC-01",
+      "data": {
+        "type": "free_text",
+        "prompt": "Write a memo (250–400 words) — or record a 2–5 minute video — for the Chief Operating Officer of a mid-sized logistics company. Late deliveries rose from 4% to 11% in the six months after a new warehouse system went live. Recommend what the company should do in the next 90 days. Lead with your recommendation, give three supporting points, and name one risk and how you would manage it.",
+        "competency_map": [
+          {
+            "competency_key": "executive_communication",
+            "weight": 1
+          }
+        ],
+        "rubric_key": "memo",
+        "min_words": 150,
+        "max_length": 4000,
+        "upload_kinds": [
+          "mp4",
+          "mov",
+          "webm"
+        ],
+        "upload_max_mb": 200
+      }
+    },
+    {
+      "key": "CASE-01",
+      "data": {
+        "type": "free_text",
+        "prompt": "Structure the problem. Set out the key question, your issue tree or main hypotheses, and the analyses you would run first (and why).",
+        "competency_map": [
+          {
+            "competency_key": "research_structuring",
+            "weight": 1
+          },
+          {
+            "competency_key": "strategy_enterprise",
+            "weight": 0.5
+          }
+        ],
+        "rubric_key": "case",
+        "min_words": 120,
+        "max_length": 5000,
+        "upload_kinds": [
+          "pdf",
+          "docx",
+          "pptx"
+        ],
+        "upload_max_mb": 10
+      }
+    },
+    {
+      "key": "CASE-02",
+      "data": {
+        "type": "free_text",
+        "prompt": "Give your recommendation. Compare at least two options, recommend one, and set out the main risks, how you would manage them, and how you would measure success.",
+        "competency_map": [
+          {
+            "competency_key": "transformation_delivery",
+            "weight": 1
+          },
+          {
+            "competency_key": "executive_communication",
+            "weight": 0.5
+          }
+        ],
+        "rubric_key": "case",
+        "min_words": 150,
+        "max_length": 5000,
+        "upload_kinds": [
+          "pdf",
+          "docx",
+          "pptx"
+        ],
+        "upload_max_mb": 10
+      }
+    }
+  ]
+}

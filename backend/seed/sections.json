@@ -1,0 +1,192 @@
+{
+  "content_type": "sections",
+  "publish": true,
+  "source": "Phase 5: sections for the 7 forms. prf_programme shows the skip rule — people with no work experience skip the programme-experience section (TDD §7.2 example).",
+  "items": [
+    {
+      "key": "prf_background",
+      "data": {
+        "title": "Your background",
+        "instructions": "Start with your CV, then a few questions about your education and experience. There are no right or wrong answers.",
+        "question_keys": [
+          "PRF-00",
+          "PRF-01",
+          "PRF-02",
+          "PRF-03",
+          "PRF-04"
+        ]
+      }
+    },
+    {
+      "key": "prf_programme",
+      "data": {
+        "title": "Programme experience",
+        "instructions": "Tell us about the change and project work you have done.",
+        "question_keys": [
+          "PRF-05",
+          "PRF-07"
+        ],
+        "skip_if": [
+          {
+            "question_key": "PRF-02",
+            "answer": "A"
+          }
+        ]
+      }
+    },
+    {
+      "key": "prf_international",
+      "data": {
+        "title": "International exposure",
+        "question_keys": [
+          "PRF-06"
+        ]
+      }
+    },
+    {
+      "key": "mot_main",
+      "data": {
+        "title": "Your motivation",
+        "instructions": "Help us understand what you want from a consulting career.",
+        "question_keys": [
+          "MOT-01",
+          "MOT-02",
+          "MOT-03",
+          "MOT-04",
+          "MOT-05",
+          "MOT-06"
+        ]
+      }
+    },
+    {
+      "key": "td_main",
+      "data": {
+        "title": "How you work",
+        "instructions": "For each question, put the four statements in order — most like you at the top, least like you at the bottom. Drag them, or use the arrow buttons. There are no right answers.",
+        "question_keys": [
+          "TD-01",
+          "TD-02",
+          "TD-03",
+          "TD-04",
+          "TD-05",
+          "TD-06"
+        ]
+      }
+    },
+    {
+      "key": "val_part1",
+      "data": {
+        "title": "What matters to you (1 of 2)",
+        "instructions": "Each statement describes a person. How much is this person like you? Answer quickly — your first reaction is best.",
+        "question_keys": [
+          "VAL-01",
+          "VAL-03",
+          "VAL-05",
+          "VAL-07",
+          "VAL-09",
+          "VAL-11",
+          "VAL-13",
+          "VAL-15",
+          "VAL-17",
+          "VAL-19"
+        ]
+      }
+    },
+    {
+      "key": "val_part2",
+      "data": {
+        "title": "What matters to you (2 of 2)",
+        "instructions": "Each statement describes a person. How much is this person like you?",
+        "question_keys": [
+          "VAL-02",
+          "VAL-04",
+          "VAL-06",
+          "VAL-08",
+          "VAL-10",
+          "VAL-12",
+          "VAL-14",
+          "VAL-16",
+          "VAL-18",
+          "VAL-20"
+        ]
+      }
+    },
+    {
+      "key": "cap_strategy",
+      "data": {
+        "title": "Strategy & problem structuring",
+        "instructions": "Choose the best answer.",
+        "question_keys": [
+          "CAP-01",
+          "CAP-02",
+          "CAP-03",
+          "CAP-04",
+          "CAP-05"
+        ]
+      }
+    },
+    {
+      "key": "cap_operations",
+      "data": {
+        "title": "Value chain, process & operating model",
+        "instructions": "Choose the best answer.",
+        "question_keys": [
+          "CAP-06",
+          "CAP-07",
+          "CAP-08",
+          "CAP-09",
+          "CAP-10"
+        ]
+      }
+    },
+    {
+      "key": "cap_transformation",
+      "data": {
+        "title": "Transformation & delivery",
+        "instructions": "Choose the best answer.",
+        "question_keys": [
+          "CAP-11",
+          "CAP-12",
+          "CAP-13",
+          "CAP-14",
+          "CAP-15"
+        ]
+      }
+    },
+    {
+      "key": "cap_data_ai",
+      "data": {
+        "title": "Data, commercial thinking, AI & judgement",
+        "instructions": "Choose the best answer.",
+        "question_keys": [
+          "CAP-16",
+          "CAP-17",
+          "CAP-18",
+          "CAP-19",
+          "CAP-20"
+        ]
+      }
+    },
+    {
+      "key": "wc_memo",
+      "data": {
+        "title": "Executive memo",
+        "instructions": "Write as you would to a senior client: clear, structured and brief — or record a short video and upload it instead. Your written answer saves automatically.",
+        "question_keys": [
+          "WC-01"
+        ]
+      }
+    },
+    {
+      "key": "case_harbour",
+      "data": {
+        "title": "Case: Harbour Bank",
+        "instructions": "Harbour Bank is a regional retail bank with 1.2 million customers and 140 branches.\n\n• Customers under 35 have fallen 18% in two years, mostly to app-only banks.\n• Its mobile app is rated 2.9 out of 5; most complaints are about slow onboarding and card controls.\n• Branches account for 55% of operating costs; branch visits are down 30% since 2021.\n• Customers over 50 are loyal and hold 70% of deposits.\n\nThe CEO asks: “How do we win back younger customers while reducing our cost to serve — without losing our loyal older customers?”\n\nAnswer the two questions below — type your answer, or upload a document (PDF, Word or PowerPoint). Typed answers save automatically.",
+        "question_keys": [
+          "CASE-01",
+          "CASE-02"
+        ]
+      }
+    }
+  ]
+}

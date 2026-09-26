@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+/*
+ * ── MODUS design system, applied to METI-MC ─────────────────────────
+ * The MODUS visual language (soft pastel gradients, white rounded
+ * containers, glass, depth, premium AI feel) over METI's content + APIs.
+ *
+ * METI's original token NAMES are kept and remapped to MODUS values, so
+ * every existing screen (bg-surface-base, text-primary, bg-accent-cta …)
+ * re-skins without touching its markup or data wiring.
+ */
+@theme {
+  /* MODUS surfaces */
+  --color-canvas: #f7f5ff;
+  --color-card: #ffffff;
+  --color-sky: #eef7ff;
+  --color-blush: #fff3f8;
+  --color-mint: #f2fbf8;
+
+  /* MODUS text */
+  --color-ink: #111827;
+  --color-muted: #667085;
+  --color-faint: #98a2b3;
+
+  /* MODUS accents */
+  --color-violet: #7b6ef6;
+  --color-violet-ink: #5b4bd6;
+  --color-blue: #4f9cff;
+  --color-pink: #ff7eb6;
+  --color-mint-500: #2fd6ac;
+  --color-amber: #ffb27a;
+  --color-line: #ece9f6;
+
+  /* ── METI token names, remapped to MODUS values (back-compat) ── */
+  --color-surface-base: #f7f5ff;
+  --color-surface-card: #ffffff;
+  --color-primary: #111827;
+  --color-accent-cta: #7b6ef6;
+
+  /* Type — Plus Jakarta Sans everywhere (loaded in layout.tsx) */
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-heading: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+
+  /* Radii + elevation */
+  --radius-xl2: 1.5rem;
+  --radius-xl3: 2rem;
+  --shadow-soft: 0 10px 30px -12px rgba(80, 70, 160, 0.18);
+  --shadow-lift: 0 24px 60px -20px rgba(80, 70, 160, 0.28);
+  --shadow-float: 0 18px 40px -16px rgba(90, 75, 200, 0.25);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    background:
+      radial-gradient(1200px 700px at 8% -8%, #efe9ff 0%, transparent 55%),
+      radial-gradient(1100px 700px at 100% 0%, #e6f3ff 0%, transparent 50%),
+      radial-gradient(1000px 800px at 60% 110%, #ffeef7 0%, transparent 55%),
+      var(--color-canvas);
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-violet);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--color-violet) 22%, transparent);
+  }
+}
+
+@layer utilities {
+  /* Glassmorphism */
+  .glass {
+    background: color-mix(in srgb, #ffffff 62%, transparent);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+  .glass-tint {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.45));
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+  }
+  .text-gradient {
+    background: linear-gradient(100deg, #6a5bf0 0%, #4f9cff 45%, #ff7eb6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .perspective {
+    perspective: 1000px;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  @keyframes modus-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  @keyframes modus-float-sm {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
+  }
+  @keyframes modus-blob {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(24px, -18px) scale(1.06); }
+    66% { transform: translate(-18px, 14px) scale(0.96); }
+  }
+  @keyframes modus-spin-slow { to { transform: rotate(360deg); } }
+  @keyframes modus-shimmer { 100% { background-position: 200% 0; } }
+  .animate-float { animation: modus-float 6s ease-in-out infinite; }
+  .animate-float-sm { animation: modus-float-sm 5s ease-in-out infinite; }
+  .animate-blob { animation: modus-blob 18s ease-in-out infinite; }
+  .animate-spin-slow { animation: modus-spin-slow 26s linear infinite; }
+  .shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.65), transparent);
+    background-size: 200% 100%;
+    animation: modus-shimmer 1.6s linear infinite;
+  }
+
+  /* ── METI's original motion utilities (kept so existing screens/charts don't break) ── */
+  @keyframes meti-fade-up {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes meti-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .reveal { animation: meti-fade-up 0.5s ease-out both; }
+  .reveal-in { animation: meti-fade-in 0.4s ease-out both; }
+  .reveal-1 { animation-delay: 0.05s; }
+  .reveal-2 { animation-delay: 0.1s; }
+  .reveal-3 { animation-delay: 0.15s; }
+  .reveal-4 { animation-delay: 0.2s; }
+  .animate-bar { transition: width 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

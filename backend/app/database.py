@@ -113,7 +113,18 @@ def get_client() -> AsyncIOMotorClient:
     global _client
     if _client is None:
         settings = get_settings()
-        _client = AsyncIOMotorClient(settings.mongo_uri, serverSelectionTimeoutMS=5000, tz_aware=True)
+        kwargs = dict(serverSelectionTimeoutMS=5000, tz_aware=True)
+        # Use certifi's CA bundle for the TLS handshake to Atlas. Without this, some
+        # container/cloud hosts (e.g. slim images) fail with SSL CERTIFICATE_VERIFY_FAILED
+        # even though the same URI connects fine locally — surfacing as "mongo: down".
+        if settings.mongo_uri.startswith("mongodb+srv://") or "tls=true" in settings.mongo_uri.lower() or "ssl=true" in settings.mongo_uri.lower():
+            try:
+                import certifi
+
+                kwargs["tlsCAFile"] = certifi.where()
+            except Exception:  # noqa: BLE001 - certifi missing shouldn't block startup
+                pass
+        _client = AsyncIOMotorClient(settings.mongo_uri, **kwargs)
     return _client
 
 

@@ -1,8 +1,18 @@
-"""Fixed-window rate limiting in Redis."""
+"""Fixed-window rate limiting in Redis.
+
+Rate limiting is a best-effort *availability* control: if Redis is unreachable
+(down, mis-configured, a transient blip) it must never take down sign-in. So the
+Redis-touching helpers **fail open** — on a backend error they log and allow the
+request rather than raising a 500. The `RateLimited` signal itself is always
+honored when Redis is working.
+"""
+import logging
 from typing import Optional
 
 from app import cache
 from app.config import get_settings
+
+log = logging.getLogger(__name__)
 
 
 class RateLimited(Exception):
@@ -18,27 +28,43 @@ def _key(bucket: str, subject: str) -> str:
 
 async def hit(bucket: str, subject: str, limit: int, window_seconds: int) -> None:
     """Count one attempt; raise RateLimited once `limit` is exceeded within the window."""
-    redis = cache.get_redis()
     key = _key(bucket, subject)
-    count = await redis.incr(key)
-    if count == 1:
-        await redis.expire(key, window_seconds)
+    try:
+        redis = cache.get_redis()
+        count = await redis.incr(key)
+        if count == 1:
+            await redis.expire(key, window_seconds)
+    except Exception as exc:  # Redis down/unreachable → don't block the request.
+        log.warning("rate-limit backend unavailable, allowing request (%s)", exc)
+        return
     if count > limit:
-        ttl = await redis.ttl(key)
+        try:
+            ttl = await redis.ttl(key)
+        except Exception:
+            ttl = window_seconds
         raise RateLimited(ttl if ttl and ttl > 0 else window_seconds)
 
 
 async def remaining_cooldown(bucket: str, subject: str) -> int:
-    ttl = await cache.get_redis().ttl(_key(bucket, subject))
+    try:
+        ttl = await cache.get_redis().ttl(_key(bucket, subject))
+    except Exception:
+        return 0
     return ttl if ttl and ttl > 0 else 0
 
 
 async def start_cooldown(bucket: str, subject: str, seconds: int) -> None:
-    await cache.get_redis().set(_key(bucket, subject), "1", ex=seconds)
+    try:
+        await cache.get_redis().set(_key(bucket, subject), "1", ex=seconds)
+    except Exception as exc:
+        log.warning("rate-limit cooldown skipped, backend unavailable (%s)", exc)
 
 
 async def reset(bucket: str, subject: str) -> None:
-    await cache.get_redis().delete(_key(bucket, subject))
+    try:
+        await cache.get_redis().delete(_key(bucket, subject))
+    except Exception:
+        pass
 
 
 async def clear_all(prefix: Optional[str] = None) -> None:

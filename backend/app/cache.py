@@ -3,6 +3,8 @@ import logging
 from typing import Optional
 
 from redis.asyncio import Redis
+from redis.asyncio.retry import Retry
+from redis.backoff import NoBackoff
 
 from app.config import get_settings
 
@@ -14,7 +16,17 @@ _redis: Optional[Redis] = None
 def get_redis() -> Redis:
     global _redis
     if _redis is None:
-        _redis = Redis.from_url(get_settings().redis_uri, decode_responses=True, socket_connect_timeout=5)
+        # Fail FAST when Redis is unreachable (2s, no retries) so callers that fail
+        # open — like rate limiting — don't hang the request. Redis is best-effort
+        # (rate limits, cooldowns); the source of truth is Mongo.
+        _redis = Redis.from_url(
+            get_settings().redis_uri,
+            decode_responses=True,
+            socket_connect_timeout=2,
+            socket_timeout=2,
+            retry=Retry(NoBackoff(), 0),
+            retry_on_timeout=False,
+        )
     return _redis
 
 

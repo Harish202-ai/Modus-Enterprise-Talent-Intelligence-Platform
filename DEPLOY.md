@@ -68,13 +68,34 @@ Frontend URL is now your live site. ✅
 ### Frontend
 | Var | Value |
 |---|---|
-| `NEXT_PUBLIC_API_URL` | your backend public URL (build-time) |
+| `BACKEND_URL` | the backend's public URL — the frontend proxies `/v1/*` to it at runtime. Optional: a sensible default is baked into `frontend/src/middleware.ts`, so it works after a push even if unset. |
+
+> The frontend does **not** need `NEXT_PUBLIC_API_URL` in production. The browser calls same-origin `/v1/*` and Next.js middleware proxies to `BACKEND_URL` at runtime (no build-time baking, no CORS).
 
 ---
 
-## Gotchas
+## Issues we hit on Railway — and the fix for each
+
+These are the real problems encountered bringing this stack up, in the order they appear:
+
+| # | Symptom | Cause | Fix |
+|---|---|---|---|
+| 1 | Build fails: *"Railpack could not determine how to build the app"* (lists only `README.md`, `*.md`) | Railway built the **repo root**, which has no app | Set each service's **Root Directory** (`backend` / `frontend`). `railway.json` in each folder forces the **Dockerfile** builder. |
+| 2 | *"Application failed to respond"* / *"no open ports"* | Backend hard-coded port `8000`, Railway assigns a dynamic `$PORT` | Dockerfile `CMD` uses `--port ${PORT:-8000}`. Frontend: set `PORT=3000` if needed. |
+| 3 | Backend crash: `ValidationError … mongo_uri Field required` | `MONGO_URI` not set on the service | Add all backend **Variables** (`MONGO_URI`, `JWT_SECRET`, `AI_*`, `ENVIRONMENT=prod`, `MONGO_DB=METI`). |
+| 4 | `JWT_SECRET must be a random string of 32+ characters` | `ENVIRONMENT=prod` with a weak/empty secret | Set a strong `JWT_SECRET` (`python -c "import secrets; print(secrets.token_urlsafe(48))"`). |
+| 5 | Frontend loads, but **all `/v1/*` calls → 404** (login/landing/pricing) | The frontend didn't know the backend's address | Set **`BACKEND_URL`** on the frontend service (or rely on the default baked into `middleware.ts`); push + redeploy the frontend. |
+| 6 | Landing shows *"hasn't been published yet"* | Deployed DB not seeded / different DB than local | `LandingView` now renders **built-in default content** as a fallback. To show real content, seed the deployed DB or point `MONGO_URI` at the seeded one. |
+| 7 | `/v1/*` returns **500**, `/health` shows `"mongo":"down"` | Backend can't reach MongoDB Atlas | (a) **Atlas → Network Access → allow `0.0.0.0/0`**; (b) `MONGO_URI` must match local exactly; (c) `MONGO_DB=METI` (uppercase — lowercase is rejected). |
+| 8 | Mongo still `down` even with allowlist open & correct URI | TLS handshake fails in the slim container (`SSL CERTIFICATE_VERIFY_FAILED`) although the same URI works locally | Mongo client now pins **certifi's CA bundle** (`tlsCAFile=certifi.where()`); `certifi` added to `requirements.txt`. Redeploy backend. |
+| 9 | Sign-in hangs / 500s | Redis down took down auth (rate-limiting) | Rate-limiting is **fail-open**; the Redis client **fails fast** (2s, no retries). Add a Railway Redis plugin + `REDIS_URI` for full function. |
+| 10 | Uploaded videos/CVs disappear after a redeploy | Container filesystem is **ephemeral** | Attach a **Volume** at `/data/uploads` and set `UPLOADS_DIR=/data/uploads`. |
+| 11 | CORS error on file download / a missing file 500s | Error responses lacked CORS headers; missing bytes crashed `FileResponse` | Missing files now return a clean **410** (with CORS headers). |
+
+**How to diagnose a `mongo: down`:** open the backend service **Logs**, find `mongo ping failed`, and read the error underneath — it names the exact cause (auth, DNS/SRV, SSL, timeout).
+
+## Other gotchas
 - **HTTPS is required** — the refresh-token cookie and the video-interview camera need a secure context. Managed hosts give you HTTPS automatically.
-- **JWT_SECRET** — with `ENVIRONMENT=prod`, the backend refuses to start on a weak/default secret.
-- **CORS** — the browser is blocked until `CORS_ORIGINS` exactly matches the frontend origin (scheme + host, no trailing slash).
-- **Port** — the backend Dockerfile listens on `8000`; Railway/Render auto-detect it. If a host injects `$PORT` and requires it, change the Dockerfile `CMD` to `uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}` (shell form).
+- **Free-tier cold starts** — the first request after idle can be slow; refresh and wait ~30s.
 - **Payments** — real Stripe needs the keys above and a webhook to `/v1/payments/webhook`; otherwise leave unset (checkout returns a clear 503 in prod).
+- **Two databases drifting** — local and deployed can point at different DBs; keep `MONGO_URI`/`MONGO_DB` aligned so seeded content and the admin account appear on the live site.

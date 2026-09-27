@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 import { errorMessage } from "@/lib/api";
 import { useAuth } from "@/lib/auth";
-import { commerceApi, formatPrice, type Product } from "@/lib/commerce";
+import { commerceApi, formatPrice, type CommerceConfig, type Product } from "@/lib/commerce";
 import { TiltCard } from "@/components/fx/TiltCard";
 import { Icon } from "@/components/ui/Icon";
 
@@ -17,7 +17,7 @@ const kindMeta: Record<string, { icon: string; accent: string }> = {
 };
 const accentSoft: Record<string, string> = { violet: "bg-violet/12 text-violet", blue: "bg-blue/12 text-blue", amber: "bg-amber/20 text-[#c9762f]" };
 
-type Data = { products: Product[]; owned: Set<string> };
+type Data = { products: Product[]; owned: Set<string>; freeAccess: boolean };
 
 const cta = "inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-[linear-gradient(100deg,#7b6ef6,#6a5bf0_45%,#4f9cff)] px-4 text-sm font-semibold text-white shadow-[0_12px_28px_-10px_rgba(123,110,246,0.7)] transition-all hover:-translate-y-0.5 disabled:translate-y-0 disabled:opacity-50 disabled:bg-none disabled:bg-ink/10 disabled:text-muted disabled:shadow-none";
 
@@ -36,8 +36,12 @@ export default function PricingView() {
   useEffect(() => {
     if (state.status === "loading") return; // wait until we know who's looking
     let stop = false;
-    Promise.all([commerceApi.products(), isCandidate ? commerceApi.mine() : Promise.resolve(null)])
-      .then(([products, mine]) => !stop && setData({ products, owned: new Set(mine?.products.map((p) => p.key) ?? []) }))
+    Promise.all([
+      commerceApi.products(),
+      commerceApi.config().catch(() => ({ free_access: false, payments_enabled: false }) as CommerceConfig),
+      isCandidate ? commerceApi.mine() : Promise.resolve(null),
+    ])
+      .then(([products, config, mine]) => !stop && setData({ products, owned: new Set(mine?.products.map((p) => p.key) ?? []), freeAccess: config.free_access }))
       .catch((err) => !stop && setError(errorMessage(err)));
     return () => {
       stop = true;
@@ -84,6 +88,7 @@ export default function PricingView() {
   }
 
   const byKey = new Map(data.products.map((p) => [p.key, p]));
+  const { freeAccess } = data;
 
   return (
     <div className="space-y-6">
@@ -111,7 +116,7 @@ export default function PricingView() {
               )}
               <span className={`grid h-12 w-12 place-items-center rounded-2xl ${accentSoft[km.accent]}`}><Icon name={km.icon} size={22} /></span>
               <h2 className="mt-4 text-lg font-bold text-ink">{p.name}</h2>
-              <p className="mt-2 font-heading text-4xl font-extrabold text-gradient">{formatPrice(p.price, p.currency)}</p>
+              <p className="mt-2 font-heading text-4xl font-extrabold text-gradient">{freeAccess ? "Free" : formatPrice(p.price, p.currency)}</p>
               {p.description && <p className="mt-3 text-sm leading-relaxed text-muted">{p.description}</p>}
               {p.kind === "bundle" && (
                 <p className="mt-3 rounded-xl bg-canvas/70 px-3 py-2 text-xs text-muted">
@@ -149,7 +154,11 @@ export default function PricingView() {
                   </button>
                 ) : (
                   <button className={cta} onClick={() => buy(p)} disabled={buying !== null}>
-                    {buying === p.key ? "Opening secure checkout…" : user ? `Buy — ${formatPrice(p.price, p.currency)}` : "Create an account to buy"}
+                    {buying === p.key
+                      ? freeAccess ? "Setting up…" : "Opening secure checkout…"
+                      : freeAccess
+                        ? (user ? "Start for free →" : "Create an account to start")
+                        : user ? `Buy — ${formatPrice(p.price, p.currency)}` : "Create an account to buy"}
                   </button>
                 )}
               </div>
@@ -158,7 +167,11 @@ export default function PricingView() {
           );
         })}
       </div>
-      <p className="text-center text-xs text-muted">Payments are processed securely by Stripe. Prices include everything listed — no subscription.</p>
+      <p className="text-center text-xs text-muted">
+        {freeAccess
+          ? "Everything is free right now — no payment required. Just pick an assessment to begin."
+          : "Payments are processed securely by Stripe. Prices include everything listed — no subscription."}
+      </p>
     </div>
   );
 }

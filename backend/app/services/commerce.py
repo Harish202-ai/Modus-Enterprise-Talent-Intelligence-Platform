@@ -82,8 +82,18 @@ async def owned_product_keys(tenant_id: str, user_id: str) -> Set[str]:
     return {e["product_key"] for e in await active_entitlements(tenant_id, user_id)}
 
 
+async def all_assessment_keys(tenant_id: str) -> Set[str]:
+    """Every assessment offered by any published product — used when the paywall is off."""
+    keys: Set[str] = set()
+    for product in await catalogue(tenant_id):
+        keys.update(product["assessment_keys"])
+    return keys
+
+
 async def accessible_assessments(tenant_id: str, user_id: str) -> Set[str]:
     """Assessments unlocked by the product *versions* the candidate actually bought."""
+    if get_settings().free_access:
+        return await all_assessment_keys(tenant_id)
     keys: Set[str] = set()
     ptype = get_type("products")
     for ent in await active_entitlements(tenant_id, user_id):
@@ -93,7 +103,7 @@ async def accessible_assessments(tenant_id: str, user_id: str) -> Set[str]:
 
 
 async def require_assessment_access(tenant_id: str, user: User, assessment_key: str) -> None:
-    if user.role == "admin":
+    if user.role == "admin" or get_settings().free_access:
         return
     if assessment_key in await accessible_assessments(tenant_id, user.id):
         return
@@ -104,6 +114,8 @@ async def require_assessment_access(tenant_id: str, user: User, assessment_key: 
 
 # Phase 8/9: the detailed report + roadmap unlock (report_upgrade product).
 async def owns_report_upgrade(tenant_id: str, user_id: str) -> bool:
+    if get_settings().free_access:
+        return True
     ptype = get_type("products")
     for ent in await active_entitlements(tenant_id, user_id):
         product = await get_version(ptype, tenant_id, ent["product_key"], ent["product_version"])
@@ -133,10 +145,10 @@ async def start_checkout(tenant_id: str, user: User, product_key: str) -> dict:
         names = [products[k]["data"]["name"] for k in requires if k in products] or requires
         raise Conflict(f"Buy {' or '.join(names)} first")
 
-    # Local/dev without Stripe configured: enrol for free instead of failing checkout, so the app is
-    # fully usable end to end without payment keys. Real payments still require Stripe.
+    # Free access (FREE_ACCESS=true, any environment) or local/dev without Stripe: enrol for free
+    # instead of failing checkout, so the app is fully usable end to end without payment keys.
     settings = get_settings()
-    if not settings.payments_configured and settings.is_dev:
+    if settings.free_access or (not settings.payments_configured and settings.is_dev):
         return await _free_enroll(tenant_id, user, product_key, product)
 
     data = product["data"]

@@ -66,6 +66,10 @@ class Settings(BaseSettings):
     upload_max_mb_video: int = 200
 
     # --- payments (Phase 4, Stripe test mode) ---
+    # Open-access switch: when true, the paywall is bypassed for everyone — every candidate can
+    # open every assessment and the Detailed Report/Roadmap without buying anything (no Stripe
+    # needed). Set FREE_ACCESS=true in the environment to turn the whole app free.
+    free_access: bool = False
     stripe_secret_key: str = ""
     stripe_webhook_secret: str = ""
     stripe_publishable_key: str = ""

@@ -3,6 +3,7 @@ from pydantic import BaseModel, Field
 
 from app import database, payments as gateway
 from app.api.deps import current_tenant, require_role, require_tenant_scope
+from app.config import get_settings
 from app.content.registry import get_type
 from app.models.tenant import Tenant
 from app.models.user import User
@@ -25,6 +26,13 @@ class ConfirmRequest(BaseModel):
 async def list_products(tenant: Tenant = Depends(current_tenant)) -> list:
     """Public price list — published products only."""
     return await commerce.catalogue(tenant.id)
+
+
+@router.get("/commerce/config")
+async def commerce_config() -> dict:
+    """Public commerce flags so the UI can render the right pricing/CTA state."""
+    settings = get_settings()
+    return {"free_access": settings.free_access, "payments_enabled": settings.payments_configured}
 
 
 @router.post("/payments/checkout")

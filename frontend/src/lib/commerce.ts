@@ -30,8 +30,11 @@ export type MyEntitlements = {
   payments: Payment[];
 };
 
+export type CommerceConfig = { free_access: boolean; payments_enabled: boolean };
+
 export const commerceApi = {
   products: () => apiFetch<Product[]>("/v1/products"),
+  config: () => apiFetch<CommerceConfig>("/v1/commerce/config"),
   mine: () => apiFetch<MyEntitlements>("/v1/entitlements/me"),
   checkout: (productKey: string) =>
     apiFetch<{ payment_id?: string; checkout_url: string | null; free?: boolean }>("/v1/payments/checkout", {
